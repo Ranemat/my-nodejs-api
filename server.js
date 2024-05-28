@@ -77,18 +77,21 @@ const jsonData = [
     }
 ];
 
+const mysql = require('mysql');
+
 // MySQL connection
 const connection = mysql.createConnection({
-  host: process.env.MYSQL_HOST || 'default-host',
-  user: process.env.MYSQL_USER || 'default-user',
-  password: process.env.MYSQL_PASSWORD || 'default-password',
-  database: process.env.MYSQL_DATABASE || 'default-database'
+  host: process.env.MYSQL_HOST || 'mysql', // تأكد من اسم الخدمة
+  user: process.env.MYSQL_USER || 'QKSA',
+  password: process.env.MYSQL_PASSWORD || 'Ranemabdullah',
+  database: process.env.MYSQL_DATABASE || 'sampledb'
 });
 
 connection.connect((err) => {
   if (err) throw err;
   console.log('Connected to MySQL');
 });
+
 
 // Create restaurants table if not exists
 const createTableQuery = `
