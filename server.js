@@ -77,8 +77,6 @@ const jsonData = [
     }
 ];
 
-const mysql = require('mysql');
-
 // MySQL connection
 const connection = mysql.createConnection({
   host: process.env.MYSQL_HOST || 'mysql', // تأكد من اسم الخدمة
@@ -91,7 +89,6 @@ connection.connect((err) => {
   if (err) throw err;
   console.log('Connected to MySQL');
 });
-
 
 // Create restaurants table if not exists
 const createTableQuery = `
